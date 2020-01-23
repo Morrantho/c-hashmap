@@ -1,5 +1,5 @@
 # c-hashmap
-A Simple C hashmap with underlying linked lists for collision resolution.
+A Simple C hashmap with underlying doubly linked lists for collision resolution. Uses djb2 for hashing. Prime numbers for hashmap size will result in better key distribution. If no collisions are present for a key lookup, yields O(1). If collisions exist, yields O(n/2) where n is the number of collisions in the indexes linked list.
 
 ## API
 
@@ -10,10 +10,6 @@ map_p map_new( ui size );
 ### Deallocates the map, the linked list array, and all data the linked lists point to.
 ```c
 void map_free( map_p map );
-```
-### djb2 hash function
-```c
-ui map_hash( char_p key );
 ```
 ### Enters a key value pair into the specified map.
 ```c
